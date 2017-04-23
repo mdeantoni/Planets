@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Planets.App_Start;
+using Planets.Bootstrap;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Web.Http;
+
 
 namespace Planets
 {
@@ -23,6 +26,9 @@ namespace Planets
 
             config.Formatters.JsonFormatter.SupportedMediaTypes
               .Add(new MediaTypeHeaderValue("text/html"));
+
+
+            config.DependencyResolver = new UnityResolver(UnityConfig.GetConfiguredContainer());
         }
     }
 }

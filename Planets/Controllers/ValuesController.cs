@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Planets.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,9 +10,17 @@ namespace Planets.Controllers
 {
     public class ValuesController : ApiController
     {
+        private ISolarSystemService solarSystemService;
+
+        public ValuesController(ISolarSystemService service)
+        {
+            this.solarSystemService = service;
+        }
+
         // GET api/values
         public IEnumerable<string> Get()
         {
+            this.solarSystemService.DoStuff();
             return new string[] { "value1", "value2", "value3" };
         }
 
