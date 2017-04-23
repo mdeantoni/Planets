@@ -40,12 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Coordinates\Angle.cs" />
     <Compile Include="Coordinates\CartesianCoordinates.cs" />
     <Compile Include="Coordinates\PolarCoordinates.cs" />
+    <Compile Include="Entities\Drought.cs" />
     <Compile Include="Entities\Planet.cs" />
     <Compile Include="Entities\SolarSystem.cs" />
+    <Compile Include="Observer\DroughtObserver.cs" />
+    <Compile Include="Observer\IObservable.cs" />
+    <Compile Include="Observer\IObserver.cs" />
+    <Compile Include="Observer\OptimalConditionsObserver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

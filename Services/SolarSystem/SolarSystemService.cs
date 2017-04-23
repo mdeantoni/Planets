@@ -15,6 +15,11 @@ namespace Planets.Services
             var vulcano = new Planet("Vulcano", new PolarCoordinates(0, 1000), 10);
 
             var solarSystem = new SolarSystem(new List<Planet>() { ferengi, betasoide, vulcano });
+
+            for (var i = 1; i < 3650; i++)
+            {
+                solarSystem.ForwardOneDay();
+            }
         }
     }
 }

@@ -23,11 +23,11 @@ namespace Planets.Models
             return position;
         }
 
-        public void ForwardOneDay()
+        public void MoveOneDay()
         {
             //Esto es una simplificacion. Como se que la velocidad angular esta expresada en grados / dia puedo plantear el cambio de posicion 
             //diario como el incremento de grados dado por la magnitud de la velocidad angular.
-            this.position.Increaseangle(velocity);
+            this.position.IncreaseAngle(velocity);
         }
     }
 }

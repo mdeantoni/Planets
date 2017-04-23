@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.Coordinates;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,25 +8,23 @@ namespace Planets.Models
 {
     public class PolarCoordinates
     {
-        public int Angle { get; set; }
-        public int Distance { get; set; }
+        private Angle angle { get; set; }
+        private int distance { get; set; }
 
         public PolarCoordinates(int initialAngle, int initialDistance)
         {
-            this.Angle = initialAngle;
-            this.Distance = initialDistance;
+            this.angle = new Angle(initialAngle);
+            this.distance = initialDistance;
         }
 
-        internal void Increaseangle(int increment)
+        public void IncreaseAngle(int increment)
         {
-            var newAngle = (this.Angle + increment) % 360; 
+            this.angle.Add(increment);
+        }
 
-            if (newAngle < 0)
-            {
-                newAngle += 360; //Para trabajar con angulos positivos
-            }
-
-            this.Angle = newAngle;
+        public Angle GetAngle()
+        {
+            return angle;
         }
     }
 }
