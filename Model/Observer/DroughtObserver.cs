@@ -10,6 +10,7 @@ namespace Model.Observer
 {
     /// <summary>
     /// Los planetas se encuentran alineadas entre si, y tambien con respecto al sol, si todos sus angulos son el mismo, o opuestos.
+    /// Se podria haber implementado como parte del obervador de condiciones optimas ( si adicionalmente a satisfacer la condicion de una recta, esta pasa por el 0, pero de esta forma entiendo es mas claro ).
     /// </summary>
     public class DroughtObserver : IObserver<SolarSystem>
     {
