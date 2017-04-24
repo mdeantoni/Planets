@@ -8,13 +8,14 @@ namespace Model.Entities
 {
     public class RainPeriod
     {
-        public RainPeriod(int day)
+        public RainPeriod(int day, double intensity)
         {
             this.Day = day;
+            this.Intensity = intensity;
         }
 
         public int Day { get; set; }
 
-        public float Intensity { get; set; }
+        public double Intensity { get; set; }
     }
 }

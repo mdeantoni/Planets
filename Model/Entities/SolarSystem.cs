@@ -8,6 +8,7 @@ namespace Planets.Models
 {
     public class SolarSystem : Model.Observer.IObservable<SolarSystem>
     {
+        private CartesianCoordinates SunCoordinates = new CartesianCoordinates(0, 0); //Initialized here since i dont have a ctor parameter that alters this.
         private IList<Planet> planets;
         private IList<Model.Observer.IObserver<SolarSystem>> observers;
         private int day;
@@ -36,6 +37,10 @@ namespace Planets.Models
             this.NotifyObservers();
         }
 
+        public CartesianCoordinates GetSunCoordinates()
+        {
+            return new CartesianCoordinates(0, 0); 
+        }
 
         public void NotifyObservers()
         {
