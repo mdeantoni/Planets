@@ -7,13 +7,13 @@ namespace Planets.Models
 {
     public class CartesianCoordinates
     {
-        public float xCoordinate;
-        public float yCoordinate;
+        public double X;
+        public double Y;
 
-        public CartesianCoordinates(float x, float y)
+        public CartesianCoordinates(double x, double y)
         {
-            this.xCoordinate = x;
-            this.yCoordinate = y; 
+            this.X = x;
+            this.Y = y; 
         }
     }
 }

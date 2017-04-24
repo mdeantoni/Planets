@@ -17,9 +17,11 @@ namespace Planets.Services
 
             var solarSystem = new SolarSystem(new List<Planet>() { ferengi, betasoide, vulcano });
 
-            var observer = new DroughtObserver();
+            var droughtObserver = new DroughtObserver();
+            var rainObserver = new RainObserver();
 
-            solarSystem.AddObserver(observer);
+            solarSystem.AddObserver(droughtObserver);
+            solarSystem.AddObserver(rainObserver);
 
             for (var i = 1; i < 3650; i++)
             {
