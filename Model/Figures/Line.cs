@@ -9,22 +9,36 @@ namespace Model.Figures
 {
     public class Line
     {
+        private bool isVertical;
         private CartesianCoordinates point0;
         private CartesianCoordinates point1;
-        private double slope;
-        private double yIntercept;
+        private decimal slope;
+        private decimal yIntercept;
+        private double xValue;
+
 
         public Line(CartesianCoordinates point0, CartesianCoordinates point1)
         {
             this.point0 = point0;
             this.point1 = point1;
-            this.slope = (this.point1.Y - this.point0.Y) / (this.point1.X - this.point0.X);
-            this.yIntercept = this.point1.Y - this.slope * this.point1.X;
+            if (this.point1.X == this.point0.X)
+            {
+                this.isVertical = true;
+                this.xValue = this.point0.X;
+            }
+            else
+            {   //Operations done with decimal precision to further avoid rounding errors.
+                this.slope = ((Convert.ToDecimal(this.point1.Y) - Convert.ToDecimal(this.point0.Y)) / (Convert.ToDecimal(this.point1.X) - Convert.ToDecimal(this.point0.X)));
+                this.yIntercept = Convert.ToDecimal(this.point1.Y) - Convert.ToDecimal(this.slope) * Convert.ToDecimal(this.point1.X);
+            }
         }
 
         public bool Contains(CartesianCoordinates checkPoint)
         {
-            return checkPoint.Y == this.slope * checkPoint.X + this.yIntercept;
+            if (this.isVertical)
+                return checkPoint.X == this.xValue;
+            else
+                return Convert.ToDecimal(checkPoint.Y) == this.slope * Convert.ToDecimal(checkPoint.X) + this.yIntercept;
         }
 
     }
