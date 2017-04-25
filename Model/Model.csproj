@@ -44,9 +44,11 @@
     <Compile Include="Coordinates\CartesianCoordinates.cs" />
     <Compile Include="Coordinates\PolarCoordinates.cs" />
     <Compile Include="Entities\Drought.cs" />
+    <Compile Include="Entities\OptimalConditions.cs" />
     <Compile Include="Entities\Planet.cs" />
     <Compile Include="Entities\RainPeriod.cs" />
     <Compile Include="Entities\SolarSystem.cs" />
+    <Compile Include="Figures\Line.cs" />
     <Compile Include="Figures\Triangle.cs" />
     <Compile Include="Observer\DroughtObserver.cs" />
     <Compile Include="Observer\IObservable.cs" />

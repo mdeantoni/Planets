@@ -19,9 +19,11 @@ namespace Planets.Services
 
             var droughtObserver = new DroughtObserver();
             var rainObserver = new RainObserver();
+            var optimalCondObserver = new OptimalConditionsObserver();
 
             solarSystem.AddObserver(droughtObserver);
             solarSystem.AddObserver(rainObserver);
+            solarSystem.AddObserver(optimalCondObserver);
 
             for (var i = 1; i < 3650; i++)
             {
