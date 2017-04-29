@@ -14,11 +14,13 @@ namespace Model.Observer
     /// </summary>
     public class DroughtObserver : IObserver<SolarSystem>
     {
+        private WeatherConditionCollection collection;
         private IList<Drought> droughts;
 
-        public DroughtObserver()
+        public DroughtObserver(WeatherConditionCollection collection)
         {
             this.droughts = new List<Drought>();
+            this.collection = collection;
         }
 
         public void Update(SolarSystem solarsystem)
@@ -29,7 +31,11 @@ namespace Model.Observer
             var firstAngle = planets.First().GetPosition().GetAngle();
 
             if (angles.All(x => x.Equals(firstAngle) || x.IsOposite(firstAngle)))
-                droughts.Add(new Drought(solarsystem.GetDay()));
+            {
+                var drought = new Drought(solarsystem.GetDay());
+                droughts.Add(drought);
+                this.collection.Add(drought);
+            }
 
         }
     }

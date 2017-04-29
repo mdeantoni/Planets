@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Model.Entities
 {
-    public class OptimalConditions : WeatherCondition
+    public abstract class WeatherCondition
     {
-          public OptimalConditions(int day)
-        {
-            this.Day = day;
-        }
+        public int WeatherConditionId { get; set; }
+
+        public int Day { get; set; }
     }
 }

@@ -11,11 +11,13 @@ namespace Model.Observer
 {
     public class OptimalConditionsObserver : IObserver<SolarSystem>
     {
-        private List<OptimalConditions> OptimalConditions;
+        private WeatherConditionCollection collection;
+        private List<OptimalConditions> optimalConditions;
 
-        public OptimalConditionsObserver()
+        public OptimalConditionsObserver(WeatherConditionCollection collection)
         {
-            this.OptimalConditions = new List<OptimalConditions>();
+            this.optimalConditions = new List<OptimalConditions>();
+            this.collection = collection;
         }
 
 
@@ -28,7 +30,9 @@ namespace Model.Observer
 
             if (line.Contains(planetCoordinates[2]) && !line.Contains(solarSystem.GetSunCoordinates())) //If it contains the sun cordinates then its a drought
             {
-                this.OptimalConditions.Add(new OptimalConditions(solarSystem.GetDay()));
+                var optimalCondition = new OptimalConditions(solarSystem.GetDay());
+                this.optimalConditions.Add(optimalCondition);
+                this.collection.Add(optimalCondition);
             }
         }
     }

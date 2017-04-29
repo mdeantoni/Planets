@@ -11,11 +11,13 @@ namespace Model.Observer
 {
     public class RainObserver : IObserver<SolarSystem>
     {
-        private List<RainPeriod> Rains;
+        private WeatherConditionCollection collection;
+        private List<RainPeriod> rains;
 
-        public RainObserver()
+        public RainObserver(WeatherConditionCollection collection)
         {
-            this.Rains = new List<RainPeriod>();
+            this.rains = new List<RainPeriod>();
+            this.collection = collection;
         }
 
         public void Update(SolarSystem solarsystem)
@@ -27,7 +29,9 @@ namespace Model.Observer
 
             if (triangle.Contains(solarsystem.GetSunCoordinates()))
             {
-                this.Rains.Add(new RainPeriod(solarsystem.GetDay(), triangle.GetPerimeter()));
+                var rain = new RainPeriod(solarsystem.GetDay(), triangle.GetPerimeter());
+                this.rains.Add(rain);
+                this.collection.Add(rain);
             }
         }
     }

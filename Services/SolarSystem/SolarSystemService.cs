@@ -1,4 +1,6 @@
-﻿using Model.Observer;
+﻿using DataAccess;
+using Model.Entities;
+using Model.Observer;
 using Planets.Models;
 using System;
 using System.Collections.Generic;
@@ -16,10 +18,11 @@ namespace Planets.Services
             var vulcano = new Planet("Vulcano", new PolarCoordinates(0, 1000), 5);
 
             var solarSystem = new SolarSystem(new List<Planet>() { ferengi, betasoide, vulcano });
+            var weatherCollection = new WeatherConditionCollection();
 
-            var droughtObserver = new DroughtObserver();
-            var rainObserver = new RainObserver();
-            var optimalCondObserver = new OptimalConditionsObserver();
+            var droughtObserver = new DroughtObserver(weatherCollection);
+            var rainObserver = new RainObserver(weatherCollection);
+            var optimalCondObserver = new OptimalConditionsObserver(weatherCollection);
 
             solarSystem.AddObserver(droughtObserver);
             solarSystem.AddObserver(rainObserver);
@@ -29,6 +32,9 @@ namespace Planets.Services
             {
                 solarSystem.ForwardOneDay();
             }
+
+            var repository = new WeatherConditionRepository();
+            repository.Persist(weatherCollection.GetAll());
         }
     }
 }

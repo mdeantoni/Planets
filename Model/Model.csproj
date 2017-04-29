@@ -48,6 +48,8 @@
     <Compile Include="Entities\Planet.cs" />
     <Compile Include="Entities\RainPeriod.cs" />
     <Compile Include="Entities\SolarSystem.cs" />
+    <Compile Include="Entities\WeatherCondition.cs" />
+    <Compile Include="Entities\WeatherConditionCollection.cs" />
     <Compile Include="Figures\Line.cs" />
     <Compile Include="Figures\Triangle.cs" />
     <Compile Include="Observer\DroughtObserver.cs" />

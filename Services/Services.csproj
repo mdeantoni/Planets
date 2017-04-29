@@ -45,6 +45,10 @@
     <Compile Include="SolarSystem\SolarSystemService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{263738f8-9371-4eed-b2dd-35c80006ee9c}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{3502f9fe-af53-4d70-b234-8dcf2092e706}</Project>
       <Name>Model</Name>
