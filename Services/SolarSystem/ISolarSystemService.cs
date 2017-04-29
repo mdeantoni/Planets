@@ -7,6 +7,6 @@ namespace Planets.Services
 {
     public interface ISolarSystemService
     {
-        void DoStuff();
+        void RunSimulation();
     }
 }

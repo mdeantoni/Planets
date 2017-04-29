@@ -20,7 +20,7 @@ namespace Planets.Controllers
         // GET api/values
         public IEnumerable<string> Get()
         {
-            this.solarSystemService.DoStuff();
+            this.solarSystemService.RunSimulation();
             return new string[] { "value1", "value2", "value3" };
         }
 

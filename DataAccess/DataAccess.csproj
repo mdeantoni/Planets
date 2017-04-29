@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IWeatherConditionRepository.cs" />
     <Compile Include="PlanetsContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WeatherConditionRepository.cs" />

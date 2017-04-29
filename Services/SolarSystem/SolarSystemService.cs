@@ -11,7 +11,14 @@ namespace Planets.Services
 {
     public class SolarSystemService : ISolarSystemService
     {
-        public void DoStuff()
+        private IWeatherConditionRepository weatherConditionRepository;
+
+        public SolarSystemService(IWeatherConditionRepository repository)
+        {
+            this.weatherConditionRepository = repository;
+        }
+
+        public void RunSimulation()
         {
             var ferengi = new Planet("Ferengi", new PolarCoordinates(0, 500), -1);
             var betasoide = new Planet("Betasoide", new PolarCoordinates(0, 2000), -3);
@@ -28,13 +35,9 @@ namespace Planets.Services
             solarSystem.AddObserver(rainObserver);
             solarSystem.AddObserver(optimalCondObserver);
 
-            for (var i = 1; i < 3650; i++)
-            {
-                solarSystem.ForwardOneDay();
-            }
+            solarSystem.AdvanceDays(3650);
 
-            var repository = new WeatherConditionRepository();
-            repository.Persist(weatherCollection.GetAll());
+            this.weatherConditionRepository.Persist(weatherCollection.GetAll());
         }
     }
 }

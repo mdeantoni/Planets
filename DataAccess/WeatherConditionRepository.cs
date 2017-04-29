@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    public class WeatherConditionRepository
+    public class WeatherConditionRepository : IWeatherConditionRepository
     {
         public void Persist(IList<WeatherCondition> conditions)
         {

@@ -18,6 +18,14 @@ namespace Planets.Models
             return this.planets;
         }
 
+        public void AdvanceDays(int days)
+        {
+            for (var i = 1; i < days; i++)
+            {
+                this.ForwardOneDay();
+            }
+        }
+
         public SolarSystem(IList<Planet> planets, int dayOffset = 0)
         {
             this.planets = planets;
@@ -39,7 +47,7 @@ namespace Planets.Models
 
         public CartesianCoordinates GetSunCoordinates()
         {
-            return new CartesianCoordinates(0, 0); 
+            return new CartesianCoordinates(0, 0);
         }
 
         public void NotifyObservers()
