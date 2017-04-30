@@ -20,6 +20,12 @@ namespace Planets
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/custom").Include(
+                  "~/Scripts/plugins.js",
+                  "~/Scripts/jquery.themepunch.revolution.min.js",
+                  "~/Scripts/custom.js"));
+
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
