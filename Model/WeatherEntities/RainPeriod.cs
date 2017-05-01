@@ -8,6 +8,10 @@ namespace Model.Entities
 {
     public class RainPeriod : WeatherCondition
     {
+        public RainPeriod()
+        {
+        }
+
         public RainPeriod(int day, double intensity)
         {
             this.Day = day;

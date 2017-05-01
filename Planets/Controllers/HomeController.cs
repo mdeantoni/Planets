@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Model.Entities;
+using Planets.ViewModels;
+using Services.WeatherConditions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,11 +11,23 @@ namespace Planets.Controllers
 {
     public class HomeController : Controller
     {
+        private IWeatherConditionService service;
+
+        public HomeController(IWeatherConditionService service)
+        {
+            this.service = service;
+        }
+
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
+            var allConditions = this.service.GetAll();
 
-            return View();
+            return View(new SimulationViewModel()
+            {
+                DroughtDays = allConditions.OfType<Drought>().Count(),
+                RainyDays = allConditions.OfType<RainPeriod>().Count(),
+                OptimalDays = allConditions.OfType<OptimalConditions>().Count(),
+            });
         }
     }
 }

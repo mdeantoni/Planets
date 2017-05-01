@@ -8,6 +8,10 @@ namespace Model.Entities
 {
     public class OptimalConditions : WeatherCondition
     {
+        public OptimalConditions()
+        {
+        }
+
           public OptimalConditions(int day)
         {
             this.Day = day;

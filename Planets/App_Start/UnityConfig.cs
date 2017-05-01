@@ -1,11 +1,14 @@
 ﻿using DataAccess;
 using Microsoft.Practices.Unity;
+using Microsoft.Practices.Unity.Mvc;
 using Planets.Services;
 using Quartz.Unity;
+using Services.WeatherConditions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Planets.App_Start
 {
@@ -15,6 +18,7 @@ namespace Planets.App_Start
         private static Lazy<IUnityContainer> container = new Lazy<IUnityContainer>(() =>
         {
             var container = new UnityContainer();
+            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
             container.AddNewExtension<QuartzUnityExtension>();
             RegisterTypes(container);
             return container;
@@ -40,6 +44,7 @@ namespace Planets.App_Start
 
             // TODO: Register your types here
             container.RegisterType<ISolarSystemService, SolarSystemService>();
+            container.RegisterType<IWeatherConditionService, WeatherConditionService>();
             container.RegisterType<IWeatherConditionRepository, WeatherConditionRepository>();
         }
     }

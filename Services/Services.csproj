@@ -43,6 +43,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SolarSystem\ISolarSystemService.cs" />
     <Compile Include="SolarSystem\SolarSystemService.cs" />
+    <Compile Include="WeatherConditions\IWeatherConditionService.cs" />
+    <Compile Include="WeatherConditions\WeatherConditionService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
