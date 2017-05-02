@@ -11,5 +11,7 @@ namespace Model.Entities
         public int WeatherConditionId { get; set; }
 
         public int Day { get; set; }
+
+        public abstract string GetDescription();
     }
 }

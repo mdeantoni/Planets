@@ -26,7 +26,7 @@ namespace Planets.Models
             }
         }
 
-        public SolarSystem(IList<Planet> planets, int dayOffset = 0)
+        public SolarSystem(IList<Planet> planets, int dayOffset = 1)
         {
             this.planets = planets;
             this.observers = new List<Model.Observer.IObserver<SolarSystem>>();

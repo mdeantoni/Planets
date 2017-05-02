@@ -12,5 +12,7 @@ namespace Planets.ViewModels
         public int DroughtDays { get; set; }
 
         public int OptimalDays { get; set; }
+
+        public int MaxRainDay { get; set; }        
     }
 }

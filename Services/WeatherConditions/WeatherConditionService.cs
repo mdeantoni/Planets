@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Model.Entities;
 using DataAccess;
+using Model.WeatherEntities;
 
 namespace Services.WeatherConditions
 {
@@ -20,6 +21,16 @@ namespace Services.WeatherConditions
         public IList<WeatherCondition> GetAll()
         {
             return this.Repository.GetAll();
+        }
+
+        public WeatherCondition GetForDay(int dia)
+        {
+            var climate = this.Repository.GetForDay(dia);
+
+            if (climate == null) //If none if found, we can asume that day nothing special happened.
+                return new RegularWeatherCondition(dia);
+
+            return climate;
         }
     }
 }

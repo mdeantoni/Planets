@@ -16,5 +16,10 @@ namespace Model.Entities
         {
             this.Day = day;
         }
+
+        public override string GetDescription()
+        {
+            return "Condiciones Optimas";
+        }
     }
 }

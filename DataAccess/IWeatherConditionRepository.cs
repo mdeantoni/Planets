@@ -8,5 +8,7 @@ namespace DataAccess
         void Persist(IList<WeatherCondition> conditions);
 
         IList<WeatherCondition> GetAll();
+
+        WeatherCondition GetForDay(int dia);
     }
 }

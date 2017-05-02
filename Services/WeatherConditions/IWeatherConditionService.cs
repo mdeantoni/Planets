@@ -10,5 +10,7 @@ namespace Services.WeatherConditions
     public interface IWeatherConditionService
     {
         IList<WeatherCondition> GetAll();
+
+        WeatherCondition GetForDay(int dia);
     }
 }

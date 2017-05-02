@@ -1,4 +1,5 @@
 ﻿using Model.Entities;
+using MoreLinq;
 using Planets.ViewModels;
 using Services.WeatherConditions;
 using System;
@@ -27,6 +28,7 @@ namespace Planets.Controllers
                 DroughtDays = allConditions.OfType<Drought>().Count(),
                 RainyDays = allConditions.OfType<RainPeriod>().Count(),
                 OptimalDays = allConditions.OfType<OptimalConditions>().Count(),
+                MaxRainDay = allConditions.OfType<RainPeriod>().MaxBy(x => x.Intensity).Day 
             });
         }
     }

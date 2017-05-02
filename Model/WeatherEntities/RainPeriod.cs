@@ -18,6 +18,11 @@ namespace Model.Entities
             this.Intensity = intensity;
         }
 
+        public override string GetDescription()
+        {
+            return "Lluvia";
+        }
+
         public double Intensity { get; set; }
     }
 }

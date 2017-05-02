@@ -17,6 +17,14 @@ namespace DataAccess
             }
         }
 
+        public WeatherCondition GetForDay(int day)
+        {
+            using (var db = new PlanetsContext())
+            {
+                return db.WeatherConditions.Where(x => x.Day == day).SingleOrDefault();
+            }
+        }
+
         public void Persist(IList<WeatherCondition> conditions)
         {
             using (var db = new PlanetsContext())
